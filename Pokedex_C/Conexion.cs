@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Pokedex_C
+
+    //Conexión a la base de datos Pokemons
 {
     class Conexion
     {
@@ -17,6 +19,7 @@ namespace Pokedex_C
             conexion = new MySqlConnection("Server = 127.0.0.1; Database = listapokemons; Uid = root; Pwd =; Port = 3306");
         }
 
+        //Sacar los pokemons por ID
         public DataTable getPoquemonPorId(int id)
         {
             try
