@@ -24,11 +24,13 @@ namespace Pokedex_C
         private void Izquierda_Click(object sender, EventArgs e)
         {
             idActual--;
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString();
-            imagen.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]);
-            masinfo.ResetText(); //Elimina el texto de la pantalla más info al cambiar
-
+            if (idActual > 0) //Cuando llegue al máximo del principio no sigue
+            {
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString();
+                imagen.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]);
+                masinfo.ResetText(); //Elimina el texto de la pantalla másinfo al cambiar
+            }
         }
 
         private Image convierteBlobAImagen(byte[] img)
@@ -40,13 +42,16 @@ namespace Pokedex_C
         private void Derecha_Click(object sender, EventArgs e)
         {
             idActual++;
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString(); //Texto en la pantalla: Nombre (en string)
-            imagen.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]); //Convierte la imagen
-            masinfo.ResetText();
+            if (idActual < 152) //Cuando llegue al último pokemon no sigue
+            { 
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString(); //Texto en la pantalla: Nombre (en string)
+                imagen.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]); //Convierte la imagen de la base de datos
+                masinfo.ResetText();
+            }
         }
         private void clear_Click(object sender, EventArgs e)
-        { 
+        {
             //Vacia la pantalla masinfo y la del nombre
             masinfo.ResetText();
             nombrePokemon.ResetText();
@@ -70,7 +75,6 @@ namespace Pokedex_C
             {
                 masinfo.Text = "No hay datos";
             }
-
         }
 
         private void tipos_Click(object sender, EventArgs e)
@@ -101,7 +105,6 @@ namespace Pokedex_C
             {
                 masinfo.Text = "No hay datos";
             }
-
         }
 
         private void preEvolucion_Click(object sender, EventArgs e)
