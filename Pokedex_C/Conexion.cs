@@ -25,7 +25,7 @@ namespace Pokedex_C
             try
             {
                 conexion.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id='" + id + "'", conexion);
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id='" + id + "'", conexion); //Comando sql
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 DataTable pokemons = new DataTable();
                 pokemons.Load(resultado);

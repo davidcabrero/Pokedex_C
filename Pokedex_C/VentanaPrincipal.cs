@@ -29,7 +29,7 @@ namespace Pokedex_C
                 misPokemons = miConexion.getPoquemonPorId(idActual);
                 nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString();
                 imagen.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]);
-                masinfo.ResetText(); //Elimina el texto de la pantalla másinfo al cambiar
+                masinfo.ResetText(); //Elimina el texto de la pantalla masinfo al cambiar
             }
         }
 
@@ -43,7 +43,7 @@ namespace Pokedex_C
         {
             idActual++;
             if (idActual < 152) //Cuando llegue al último pokemon no sigue
-            { 
+            {
                 misPokemons = miConexion.getPoquemonPorId(idActual);
                 nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString(); //Texto en la pantalla: Nombre (en string)
                 imagen.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]); //Convierte la imagen de la base de datos
@@ -52,9 +52,10 @@ namespace Pokedex_C
         }
         private void clear_Click(object sender, EventArgs e)
         {
-            //Vacia la pantalla masinfo y la del nombre
+            //Vacia la pantalla masinfo, la del nombre y la imagen
             masinfo.ResetText();
             nombrePokemon.ResetText();
+            imagen.Image = null;
         }
         private void especie_Click(object sender, EventArgs e)
         {
@@ -157,5 +158,13 @@ namespace Pokedex_C
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            ventana2 v = new ventana2();
+
+            v.cambiaDescripcionPokemon(misPokemons.Rows[0]["descripcion"].ToString());
+            v.Show();
+        }
     }
 }
