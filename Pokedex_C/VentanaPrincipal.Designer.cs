@@ -279,12 +279,13 @@ namespace Pokedex_C
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Location = new System.Drawing.Point(826, 81);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 95);
             this.button1.TabIndex = 21;
-            this.button1.Text = "Más Info";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // VentanaPrincipal

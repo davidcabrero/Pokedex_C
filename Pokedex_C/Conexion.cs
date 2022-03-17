@@ -37,5 +37,39 @@ namespace Pokedex_C
                 throw e;
             }
         }
+        public DataTable getPoquemonPorPeso(int id)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id='" + id + "' ORDER BY peso LIMIT 1", conexion); //Comando sql
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable pokemons = new DataTable();
+                pokemons.Load(resultado);
+                conexion.Close();
+                return pokemons;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+        public DataTable getPoquemonPorAltura(int id)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id='" + id + "' ORDER BY altura LIMIT 1", conexion); //Comando sql
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable pokemons = new DataTable();
+                pokemons.Load(resultado);
+                conexion.Close();
+                return pokemons;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
     }
-}
+    }

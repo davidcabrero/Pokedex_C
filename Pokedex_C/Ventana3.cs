@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace Pokedex_C
 {
-    public partial class Ventana2 : Form
+    public partial class Ventana3 : Form
     {
-        public void cambiaDescripcionPokemon(String descripcion)
-        {
-            cajaDescripcion.Text = descripcion;
-        }
-
-        public Ventana2()
+        public Ventana3()
         {
             InitializeComponent();
-            
         }
     }
 }

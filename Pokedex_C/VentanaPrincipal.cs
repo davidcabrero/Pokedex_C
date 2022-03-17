@@ -160,11 +160,19 @@ namespace Pokedex_C
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (idActual > 1)
+            {
+                Ventana2 v = new Ventana2();
 
-            ventana2 v = new ventana2();
+                v.cambiaDescripcionPokemon(misPokemons.Rows[0]["descripcion"].ToString());
+                v.Show();
+            }
+        }
 
-            v.cambiaDescripcionPokemon(misPokemons.Rows[0]["descripcion"].ToString());
-            v.Show();
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Ventana3 v3 = new Ventana3();
+            v3.Show();
         }
     }
 }
