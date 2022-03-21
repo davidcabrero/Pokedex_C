@@ -25,7 +25,7 @@ namespace Pokedex_C
             try
             {
                 conexion.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id='" + id + "'", conexion); //Comando sql
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id='" + id + "'", conexion); //Comando sql id
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 DataTable pokemons = new DataTable();
                 pokemons.Load(resultado);
@@ -37,12 +37,12 @@ namespace Pokedex_C
                 throw e;
             }
         }
-        public DataTable getPoquemonPorPeso(int id)
+        public DataTable getPoquemonPorPreEv(int id)
         {
             try
             {
                 conexion.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id='" + id + "' ORDER BY peso LIMIT 1", conexion); //Comando sql
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id = (SELECT preEvolucion FROM pokemon WHERE id='" + id + "')", conexion); //Comando sql preEvolución
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 DataTable pokemons = new DataTable();
                 pokemons.Load(resultado);
@@ -54,12 +54,12 @@ namespace Pokedex_C
                 throw e;
             }
         }
-        public DataTable getPoquemonPorAltura(int id)
+        public DataTable getPoquemonPorPosEv(int id)
         {
             try
             {
                 conexion.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id='" + id + "' ORDER BY altura LIMIT 1", conexion); //Comando sql
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon WHERE id = (SELECT posEvolucion FROM pokemon WHERE id='" + id + "')", conexion); //Comando sql posEvolución
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 DataTable pokemons = new DataTable();
                 pokemons.Load(resultado);

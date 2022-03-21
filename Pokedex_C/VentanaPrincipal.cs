@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace Pokedex_C
     {
         Conexion miConexion = new Conexion();
         DataTable misPokemons = new DataTable();
+        DataTable misPokemons2 = new DataTable();
         int idActual = 1; //guarda el id del pokemos que se está mostrando
         public VentanaPrincipal()
         {
@@ -110,9 +112,13 @@ namespace Pokedex_C
 
         private void preEvolucion_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["preEvolucion"].ToString();
-            if (misPokemons.Rows[0]["preEvolucion"].ToString() == "")
+            misPokemons = miConexion.getPoquemonPorPreEv(idActual);
+            misPokemons2 = miConexion.getPoquemonPorId(idActual); //Para cuando no haya preEv
+            if (misPokemons2.Rows[0]["preEvolucion"].ToString() != "")
+            {
+                masinfo.Text = misPokemons.Rows[0]["nombre"].ToString();
+            }
+            else
             {
                 masinfo.Text = "No hay datos";
             }
@@ -120,9 +126,13 @@ namespace Pokedex_C
 
         private void posEvolucion_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["posEvolucion"].ToString();
-            if (misPokemons.Rows[0]["posEvolucion"].ToString() == "")
+            misPokemons = miConexion.getPoquemonPorPosEv(idActual);
+            misPokemons2 = miConexion.getPoquemonPorId(idActual); //Para cuando no haya posEv
+            if (misPokemons2.Rows[0]["posEvolucion"].ToString() != "")
+            {
+                masinfo.Text = misPokemons.Rows[0]["nombre"].ToString();
+            }
+            else
             {
                 masinfo.Text = "No hay datos";
             }
@@ -173,6 +183,12 @@ namespace Pokedex_C
         {
             Ventana3 v3 = new Ventana3();
             v3.Show();
+        }
+
+        private void playSimpleSound()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            simpleSound.Play();
         }
     }
 }
