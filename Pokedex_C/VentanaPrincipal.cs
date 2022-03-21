@@ -55,123 +55,158 @@ namespace Pokedex_C
         }
         private void clear_Click(object sender, EventArgs e)
         {
-            //Vacia la pantalla masinfo, la del nombre y la imagen
-            masinfo.ResetText();
-            nombrePokemon.ResetText();
-            imagen.Image = null;
+            if (idActual < 152 && idActual > 0)
+            {
+                //Vacia la pantalla masinfo, la del nombre y la imagen
+                masinfo.ResetText();
+                nombrePokemon.ResetText();
+                imagen.Image = null;
+            }
         }
         private void especie_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["especie"].ToString();
-            //Si no hay datos, se le notifica al usuario
-            if (misPokemons.Rows[0]["especie"].ToString() == "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                masinfo.Text = misPokemons.Rows[0]["especie"].ToString();
+                //Si no hay datos, se le notifica al usuario
+                if (misPokemons.Rows[0]["especie"].ToString() == "")
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void habitat_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["habitat"].ToString();
-            if (misPokemons.Rows[0]["habitat"].ToString() == "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                masinfo.Text = misPokemons.Rows[0]["habitat"].ToString();
+                if (misPokemons.Rows[0]["habitat"].ToString() == "")
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void tipos_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["tipo1"].ToString();
-            if (misPokemons.Rows[0]["tipo1"].ToString() == "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                masinfo.Text = misPokemons.Rows[0]["tipo1"].ToString();
+                if (misPokemons.Rows[0]["tipo1"].ToString() == "")
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void habilidad_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["habilidad"].ToString();
-            if (misPokemons.Rows[0]["habilidad"].ToString() == "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                masinfo.Text = misPokemons.Rows[0]["habilidad"].ToString();
+                if (misPokemons.Rows[0]["habilidad"].ToString() == "")
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void movimientos_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["movimiento1"].ToString();
-            if (misPokemons.Rows[0]["movimiento1"].ToString() == "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                masinfo.Text = misPokemons.Rows[0]["movimiento1"].ToString();
+                if (misPokemons.Rows[0]["movimiento1"].ToString() == "")
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void preEvolucion_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorPreEv(idActual);
-            misPokemons2 = miConexion.getPoquemonPorId(idActual); //Para cuando no haya preEv
-            if (misPokemons2.Rows[0]["preEvolucion"].ToString() != "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = misPokemons.Rows[0]["nombre"].ToString();
-            }
-            else
-            {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorPreEv(idActual);
+                misPokemons2 = miConexion.getPoquemonPorId(idActual); //Para cuando no haya preEv
+                if (misPokemons2.Rows[0]["preEvolucion"].ToString() != "")
+                {
+                    masinfo.Text = misPokemons.Rows[0]["nombre"].ToString();
+                    imagenEvo.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]); //Imagen preEv
+                }
+                else
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void posEvolucion_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorPosEv(idActual);
-            misPokemons2 = miConexion.getPoquemonPorId(idActual); //Para cuando no haya posEv
-            if (misPokemons2.Rows[0]["posEvolucion"].ToString() != "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = misPokemons.Rows[0]["nombre"].ToString();
-            }
-            else
-            {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorPosEv(idActual);
+                misPokemons2 = miConexion.getPoquemonPorId(idActual); //Para cuando no haya posEv
+                if (misPokemons2.Rows[0]["posEvolucion"].ToString() != "")
+                {
+                    masinfo.Text = misPokemons.Rows[0]["nombre"].ToString();
+                    imagenEvo.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]); //Imagen posEv
+                }
+                else
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void descripcion_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["descripcion"].ToString();
-            if (misPokemons.Rows[0]["descripcion"].ToString() == "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                masinfo.Text = misPokemons.Rows[0]["descripcion"].ToString();
+                if (misPokemons.Rows[0]["descripcion"].ToString() == "")
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void peso_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["peso"].ToString();
-            if (misPokemons.Rows[0]["peso"].ToString() == "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                masinfo.Text = misPokemons.Rows[0]["peso"].ToString();
+                if (misPokemons.Rows[0]["peso"].ToString() == "")
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void altura_Click(object sender, EventArgs e)
         {
-            misPokemons = miConexion.getPoquemonPorId(idActual);
-            masinfo.Text = misPokemons.Rows[0]["altura"].ToString();
-            if (misPokemons.Rows[0]["altura"].ToString() == "")
+            if (idActual < 152 && idActual > 0)
             {
-                masinfo.Text = "No hay datos";
+                misPokemons = miConexion.getPoquemonPorId(idActual);
+                masinfo.Text = misPokemons.Rows[0]["altura"].ToString();
+                if (misPokemons.Rows[0]["altura"].ToString() == "")
+                {
+                    masinfo.Text = "No hay datos";
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (idActual > 1)
+            if (idActual < 152 && idActual > 0)
             {
                 Ventana2 v = new Ventana2();
 
@@ -182,14 +217,11 @@ namespace Pokedex_C
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Ventana3 v3 = new Ventana3();
-            v3.Show();
-        }
-
-        private void playSimpleSound()
-        {
-            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
-            simpleSound.Play();
+            if (idActual < 152 && idActual > 0)
+            {
+                Ventana3 v3 = new Ventana3();
+                v3.Show();
+            }
         }
     }
 }

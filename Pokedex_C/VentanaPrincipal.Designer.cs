@@ -52,6 +52,7 @@ namespace Pokedex_C
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.imagenEvo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -69,6 +70,7 @@ namespace Pokedex_C
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenEvo)).BeginInit();
             this.SuspendLayout();
             // 
             // imagen
@@ -288,11 +290,22 @@ namespace Pokedex_C
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // imagenEvo
+            // 
+            this.imagenEvo.Location = new System.Drawing.Point(440, 149);
+            this.imagenEvo.Name = "imagenEvo";
+            this.imagenEvo.Size = new System.Drawing.Size(74, 54);
+            this.imagenEvo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imagenEvo.TabIndex = 22;
+            this.imagenEvo.TabStop = false;
+            this.toolTip1.SetToolTip(this.imagenEvo, "Evolución");
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(971, 653);
+            this.Controls.Add(this.imagenEvo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox16);
@@ -333,6 +346,7 @@ namespace Pokedex_C
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenEvo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,6 +373,7 @@ namespace Pokedex_C
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox imagenEvo;
     }
 }
 
