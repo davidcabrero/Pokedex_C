@@ -33,6 +33,7 @@ namespace Pokedex_C
                 nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString();
                 imagen.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]);
                 masinfo.ResetText(); //Elimina el texto de la pantalla masinfo al cambiar
+                imagenEvo.Image = null;
             }
         }
 
@@ -51,6 +52,7 @@ namespace Pokedex_C
                 nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString(); //Texto en la pantalla: Nombre (en string)
                 imagen.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]); //Convierte la imagen de la base de datos
                 masinfo.ResetText();
+                imagenEvo.Image = null; //al pasar borra la imagen de evo
             }
         }
         private void clear_Click(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace Pokedex_C
                 masinfo.ResetText();
                 nombrePokemon.ResetText();
                 imagen.Image = null;
+                imagenEvo.Image = null;
             }
         }
         private void especie_Click(object sender, EventArgs e)
