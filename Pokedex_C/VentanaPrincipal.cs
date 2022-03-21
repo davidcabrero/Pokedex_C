@@ -21,12 +21,13 @@ namespace Pokedex_C
         public VentanaPrincipal()
         {
             InitializeComponent();
+            idActual--; //Para que salga el primer pokemon después del gif inicial
         }
 
         private void Izquierda_Click(object sender, EventArgs e)
         {
             idActual--;
-            if (idActual > 0) //Cuando llegue al máximo del principio no sigue
+            if (idActual < 152 && idActual > 0) //Cuando llegue al máximo del principio no sigue
             {
                 misPokemons = miConexion.getPoquemonPorId(idActual);
                 nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString();
@@ -44,7 +45,7 @@ namespace Pokedex_C
         private void Derecha_Click(object sender, EventArgs e)
         {
             idActual++;
-            if (idActual < 152) //Cuando llegue al último pokemon no sigue
+            if (idActual < 152 && idActual > 0) //Cuando llegue al último pokemon no sigue
             {
                 misPokemons = miConexion.getPoquemonPorId(idActual);
                 nombrePokemon.Text = misPokemons.Rows[0]["nombre"].ToString(); //Texto en la pantalla: Nombre (en string)
