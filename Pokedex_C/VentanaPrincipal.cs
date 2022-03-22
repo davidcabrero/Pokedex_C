@@ -22,6 +22,16 @@ namespace Pokedex_C
         {
             InitializeComponent();
             idActual--; //Para que salga el primer pokemon después del gif inicial
+            SonidoAmbiente(); //Intro musical
+        }
+
+        private SoundPlayer sonidoEntradaCarga;
+
+
+        public void SonidoAmbiente()
+        {
+                sonidoEntradaCarga = new SoundPlayer(Properties.Resources.musicapokemon); //archivo de sonido
+                sonidoEntradaCarga.Play(); //comienza reproducción
         }
 
         private void Izquierda_Click(object sender, EventArgs e)
@@ -226,5 +236,7 @@ namespace Pokedex_C
                 v3.Show();
             }
         }
+
+
     }
 }
