@@ -51,8 +51,9 @@ namespace Pokedex_C
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.imagenEvo = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -279,17 +280,6 @@ namespace Pokedex_C
             this.toolTip1.SetToolTip(this.pictureBox17, "Peso");
             this.pictureBox17.Click += new System.EventHandler(this.peso_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Location = new System.Drawing.Point(826, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 95);
-            this.button1.TabIndex = 21;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // imagenEvo
             // 
             this.imagenEvo.Location = new System.Drawing.Point(440, 149);
@@ -300,11 +290,36 @@ namespace Pokedex_C
             this.imagenEvo.TabStop = false;
             this.toolTip1.SetToolTip(this.imagenEvo, "Evolución");
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.Location = new System.Drawing.Point(826, 81);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 99);
+            this.button1.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.button1, "Más info del pokemon");
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Location = new System.Drawing.Point(826, 194);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(98, 92);
+            this.button2.TabIndex = 23;
+            this.toolTip1.SetToolTip(this.button2, "¿Cómo se usa?");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(971, 653);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.imagenEvo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox17);
@@ -374,6 +389,7 @@ namespace Pokedex_C
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox imagenEvo;
+        private System.Windows.Forms.Button button2;
     }
 }
 
